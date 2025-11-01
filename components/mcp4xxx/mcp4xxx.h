@@ -45,10 +45,6 @@ class MCP4XXX : public number::Number, public Component, public spi::SPIDevice<s
   bool disable_terminals() { return set_terminal_connection(false, false, false); }
 
  protected:
-  void control(float value) override;
-  bool read_wiper_value(uint8_t &value);
-  bool increment_wiper();
-  bool decrement_wiper();
   bool write_tcon_register(uint8_t value);
 
   uint8_t create_command_byte(uint8_t address, uint8_t command, uint8_t data_bits = 0);
